@@ -339,3 +339,44 @@ class Database {
 var dbConnection: Database? = Database(username: "user1", database: "BookDB")
 
 dbConnection = nil
+
+//------------------------------------------------------------------------------------------------------
+
+// Optional Chaining
+class MovieDirector {
+    var name: String
+    var birthYear: Int
+    
+    init(name: String, birthYear: Int) {
+        self.name = name
+        self.birthYear = birthYear
+    }
+}
+
+class Movie {
+    var title: String
+    var director: MovieDirector?
+    
+    init(title: String, director: MovieDirector?) {
+        self.title = title
+        self.director = director
+    }
+}
+
+let director = MovieDirector(name: "Lana and Lilly Wachowski", birthYear: 1965)
+
+let movie1 = Movie(title: "The Matrix", director: director)
+
+if let directorName = movie1.director?.name {
+    print("The movie is directed by \(directorName).")
+} else {
+    print("The director is not available.")
+}
+
+let movie2 = Movie(title: "Untitled Movie", director: nil)
+
+if let directorName = movie2.director?.name {
+    print("The movie is directed by \(directorName).")
+} else {
+    print("The director is not available.")
+}
