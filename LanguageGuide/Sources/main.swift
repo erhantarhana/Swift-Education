@@ -62,3 +62,29 @@ func printCourse() {
 }
 
 printCourse()
+
+//------------------------------------------------------------------------------------------------------
+
+// Control Flow
+var score = 77
+
+var grade: String
+
+switch score {
+case 90...100:
+    grade = "AA"
+    break
+case 80..<90:
+    grade = "BB"
+    break
+case 70..<80:
+    grade = "CC"
+    break
+case 60..<70:
+    grade = "DD"
+    break
+default:
+    grade = "FF"
+}
+
+print("The student's grade is \(grade).")
