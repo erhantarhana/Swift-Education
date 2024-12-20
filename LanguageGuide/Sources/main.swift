@@ -503,3 +503,50 @@ for instrument in instruments {
         print("The \(instrument.name) is an undefined instrument.")
     }
 }
+
+//------------------------------------------------------------------------------------------------------
+
+// Nested Types
+struct University {
+    var name: String
+    var faculties: [Faculty]
+
+    struct Faculty {
+        var name: String
+        var departments: [Department]
+
+        struct Department {
+            var name: String
+            var courses: [String]
+        }
+    }
+}
+
+let engineeringFaculty = University.Faculty(
+    name: "Engineering",
+    departments: [
+        University.Faculty.Department(
+            name: "Computer Engineering",
+            courses: ["Algorithms", "Mobile Development"]
+        ),
+        University.Faculty.Department(
+            name: "Physics Engineering",
+            courses: ["Thermodynamics", "Physics I"]
+        )
+    ]
+)
+
+let university = University(
+    name: "X University",
+    faculties: [engineeringFaculty]
+)
+
+for faculty in university.faculties {
+    print("Faculty: \(faculty.name)")
+    for department in faculty.departments {
+        print("- Department: \(department.name)")
+        for course in department.courses {
+            print("  - Course: \(course)")
+        }
+    }
+}
