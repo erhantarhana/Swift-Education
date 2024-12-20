@@ -41,3 +41,24 @@ var borrowDate = "December 30, 2024"
 
 var message = "Dear \(borrowerName), you have successfully borrowed '\(bookName)'. Please return it by \(borrowDate)."
 print(message)
+
+//------------------------------------------------------------------------------------------------------
+
+// Collection Types
+let courseItems = ["Algorithm Analysis", "Database Systems", "Data Structures", "Object Oriented Programming"]
+let itemCredits: [String: Double] = [
+    "Algorithm Analysis": 3.00,
+    "Database Systems": 2.00,
+    "Data Structures": 4.00,
+    "Object Oriented Programming": 5.00
+]
+
+func printCourse() {
+    for item in courseItems {
+        if let credits = itemCredits[item] {
+            print("\(item): \(credits) credits")
+        }
+    }
+}
+
+printCourse()
