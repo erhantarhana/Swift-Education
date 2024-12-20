@@ -174,3 +174,19 @@ var car1 = Car(model: "AUDI S3", rentalPricePerDay: 100.0, isAvailable: true)
 var day = 5
 var rentalCost = car1.rentalCost(days: day)
 print("Rental cost for \(day) days: $\(rentalCost)")
+
+//------------------------------------------------------------------------------------------------------
+
+// Properties
+struct Book {
+    var title: String
+    var numberOfPages: Int
+    
+    var isLargeBook: Bool {
+        return numberOfPages > 1000
+    }
+}
+
+var title: String = "War and Peace"
+var book = Book(title: title, numberOfPages: 1200)
+print("Is \(title) a large book? \(book.isLargeBook)")
