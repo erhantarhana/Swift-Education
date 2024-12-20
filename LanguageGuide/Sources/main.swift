@@ -283,3 +283,37 @@ vehicle.start()
 
 let motorcycle = Motorcycle(brand: "Kawasaki", model: "NINJA ZX-10RR", hasSidecar: true)
 motorcycle.start()
+
+//------------------------------------------------------------------------------------------------------
+
+// Initialization
+class Author {
+    var name: String
+    var birthYear: Int
+    
+    init(name: String, birthYear: Int) {
+        self.name = name
+        self.birthYear = birthYear
+    }
+}
+
+class BookInfo {
+    var title: String
+    var yearPublished: Int
+    var author: Author
+    
+    init(title: String, yearPublished: Int, author: Author) {
+        self.title = title
+        self.yearPublished = yearPublished
+        self.author = author
+    }
+    
+}
+
+let author = Author(name: "Franz Kafka", birthYear: 1883)
+
+let book1 = BookInfo(title: "The Metamorphosis", yearPublished: 1915, author: author)
+let book2 = BookInfo(title: "The Trial", yearPublished: 1925, author: author)
+
+print("\(book1.title) was written by \(book1.author.name) and published in \(book1.yearPublished).")
+print("\(book2.title) was written by \(book2.author.name) and published in \(book2.yearPublished).")
