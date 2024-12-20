@@ -573,3 +573,28 @@ extension Product {
 
 let product = Product(name: "Game Console", price: 999.99)
 product.displayProductInfo()
+
+//------------------------------------------------------------------------------------------------------
+
+// Protocols
+protocol Drivable {
+    func drive()
+}
+
+protocol Swimmable {
+    func swim()
+}
+
+class Human: Drivable, Swimmable {
+    func drive() {
+        print("The human is driving.")
+    }
+    
+    func swim() {
+        print("The human is swimming.")
+    }
+}
+
+let human = Human()
+human.drive()
+human.swim()
