@@ -190,3 +190,24 @@ struct Book {
 var title: String = "War and Peace"
 var book = Book(title: title, numberOfPages: 1200)
 print("Is \(title) a large book? \(book.isLargeBook)")
+
+//------------------------------------------------------------------------------------------------------
+
+// Methods
+class CarSpeed {
+    var speed: Int
+    
+    init(speed: Int) {
+        self.speed = speed
+    }
+    
+    func accelerate() {
+        speed = speed + 10
+        print("The car's speed is now \(speed) km/h.")
+    }
+}
+
+let myCar = CarSpeed(speed: 50)
+myCar.accelerate() // speed -> 60
+myCar.accelerate() // speed -> 70
+myCar.accelerate() // speed -> 80
