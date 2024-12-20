@@ -239,3 +239,47 @@ print(studentGrades["John"]!)
 
 studentGrades["Lewis"] = 80
 print(studentGrades["Lewis"]!)
+
+//------------------------------------------------------------------------------------------------------
+
+// Inheritance
+class Vehicle {
+    var brand: String
+    var model: String
+    
+    init(brand: String, model: String) {
+        self.brand = brand
+        self.model = model
+    }
+    
+    func start() {
+        print("\(brand) \(model) is starting.")
+    }
+    
+    func stop() {
+        print("\(brand) \(model) is stopping.")
+    }
+}
+
+class Motorcycle: Vehicle {
+    var hasSidecar: Bool
+    
+    init(brand: String, model: String, hasSidecar: Bool) {
+        self.hasSidecar = hasSidecar
+        super.init(brand: brand, model: model)
+    }
+    
+    override func start() {
+        if hasSidecar {
+            print("\(brand) \(model) with a sidecar is starting with a motorcycle engine.")
+        } else {
+            print("\(brand) \(model) without a sidecar is starting with a motorcycle engine.")
+        }
+    }
+}
+
+let vehicle = Vehicle(brand: "AUDI", model: "S3")
+vehicle.start()
+
+let motorcycle = Motorcycle(brand: "Kawasaki", model: "NINJA ZX-10RR", hasSidecar: true)
+motorcycle.start()
