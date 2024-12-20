@@ -452,3 +452,54 @@ func takeOrders(orders: [String]) {
 
 let orders = ["Pizza", "Kebab", "Burger"]
 takeOrders(orders: orders)
+
+//------------------------------------------------------------------------------------------------------
+
+// Type Casting
+class MusicalInstrument {
+    var name: String
+    init(name: String) {
+        self.name = name
+    }
+}
+
+class Piano: MusicalInstrument {
+    var numberOfKeys: Int
+    init(name: String, numberOfKeys: Int) {
+        self.numberOfKeys = numberOfKeys
+        super.init(name: name)
+    }
+    
+    func play() {
+        print("The \(name) with \(numberOfKeys) keys is being played.")
+    }
+}
+
+class Guitar: MusicalInstrument {
+    var numberOfStrings: Int
+    init(name: String, numberOfStrings: Int) {
+        self.numberOfStrings = numberOfStrings
+        super.init(name: name)
+    }
+    
+    func strum() {
+        print("The \(name) with \(numberOfStrings) strings is being strummed.")
+    }
+}
+
+let instruments: [MusicalInstrument] = [
+    Piano(name: "Grand Piano", numberOfKeys: 88),
+    Guitar(name: "Acoustic Guitar", numberOfStrings: 6),
+    Piano(name: "Electric Piano", numberOfKeys: 61),
+    MusicalInstrument(name: "Unknown Instrument")
+]
+
+for instrument in instruments {
+    if let piano = instrument as? Piano {
+        piano.play()
+    } else if let guitar = instrument as? Guitar {
+        guitar.strum()
+    } else {
+        print("The \(instrument.name) is an undefined instrument.")
+    }
+}
