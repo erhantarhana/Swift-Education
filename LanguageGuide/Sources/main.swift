@@ -16,6 +16,8 @@ func rentCar() {
 
 rentCar()
 
+//------------------------------------------------------------------------------------------------------
+
 // Basic Operators
 var hourlyWage = 20.0 // Hourly wage in USD
 var regularHours = 150.0 // Standard working hours per month
@@ -29,3 +31,13 @@ var totalPay = regularPay + overtimePay
 print("Regular pay: \(regularPay) USD")
 print("Overtime pay: \(overtimePay) USD")
 print("Total pay: \(totalPay) USD")
+
+//------------------------------------------------------------------------------------------------------
+
+// Strings and Characters
+var bookName = "The Metamorphosis"
+var borrowerName = "John"
+var borrowDate = "December 30, 2024"
+
+var message = "Dear \(borrowerName), you have successfully borrowed '\(bookName)'. Please return it by \(borrowDate)."
+print(message)
