@@ -550,3 +550,26 @@ for faculty in university.faculties {
         }
     }
 }
+
+//------------------------------------------------------------------------------------------------------
+
+// Extensions
+class Product {
+    var name: String
+    var price: Double
+    
+    init(name: String, price: Double) {
+        self.name = name
+        self.price = price
+    }
+}
+
+extension Product {
+    func displayProductInfo() {
+        print("Product Name: \(name)")
+        print("Price: $\(price)")
+    }
+}
+
+let product = Product(name: "Game Console", price: 999.99)
+product.displayProductInfo()
