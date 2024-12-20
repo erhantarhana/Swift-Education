@@ -598,3 +598,28 @@ class Human: Drivable, Swimmable {
 let human = Human()
 human.drive()
 human.swim()
+
+//------------------------------------------------------------------------------------------------------
+
+// Generics
+struct Person<T> {
+    var name: String
+    var item: T
+    
+    init(name: String, item: T) {
+        self.name = name
+        self.item = item
+    }
+    
+    func describe() {
+        print("\(name) has a \(item).")
+    }
+}
+
+let person1 = Person(name: "Max", item: "book")
+let person2 = Person(name: "Lewis", item: "laptop")
+let person3 = Person(name: "Charles", item: "phone")
+
+person1.describe()
+person2.describe()  
+person3.describe()
