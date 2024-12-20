@@ -380,3 +380,46 @@ if let directorName = movie2.director?.name {
 } else {
     print("The director is not available.")
 }
+
+//------------------------------------------------------------------------------------------------------
+
+// Error Handling
+enum BankError: Error {
+    case insufficientFunds(required: Double)
+    case invalidAccount
+    case withdrawalLimitExceeded
+}
+
+class BankAccount {
+    var balance: Double
+    var withdrawalLimit: Double
+
+    init(balance: Double, withdrawalLimit: Double) {
+        self.balance = balance
+        self.withdrawalLimit = withdrawalLimit
+    }
+
+    func withdraw(amount: Double) throws {
+        guard amount <= withdrawalLimit else {
+            throw BankError.withdrawalLimitExceeded
+        }
+        guard amount <= balance else {
+            throw BankError.insufficientFunds(required: amount - balance)
+        }
+
+        balance -= amount
+        print("Successfully withdrew $\(amount). Remaining balance: $\(balance).")
+    }
+}
+
+let account = BankAccount(balance: 400.0, withdrawalLimit: 250.0)
+
+do {
+    try account.withdraw(amount: 350.0)
+} catch BankError.withdrawalLimitExceeded {
+    print("Withdrawal limit exceeded.")
+} catch BankError.insufficientFunds(let required) {
+    print("Insufficient funds. You need an additional $\(required).")
+} catch {
+    print("An unexpected error occurred: \(error).")
+}
