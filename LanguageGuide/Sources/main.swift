@@ -108,9 +108,27 @@ let order = ["Burger", "Kebab", "Dessert"]
 let menuPrices: [String: Double] = [
     "Burger": 6.99,
     "Pizza": 10.49,
-    "Kebab": 14.99,
+    "Kebab": 4.00,
     "Dessert": 4.99
 ]
 
 let totalPrice = calculateTotal(orderItems: order, prices: menuPrices)
 print("Total price for the order is $\(totalPrice).")
+
+//------------------------------------------------------------------------------------------------------
+
+// Closures
+let courseItemsSort = [
+    ("Algorithm Analysis", 3.00),
+    ("Database Systems", 2.00),
+    ("Data Structures", 4.00),
+    ("Object Oriented Programming", 5.00)
+]
+
+let sortedCourseItems = courseItemsSort.sorted { (item1, item2) -> Bool in
+    return item1.1 < item2.1
+}
+
+for item in sortedCourseItems {
+    print("\(item.0): \(item.1) credit")
+}
