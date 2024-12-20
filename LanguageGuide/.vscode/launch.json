@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:LanguageGuide}",
+            "name": "Debug LanguageGuide",
+            "program": "${workspaceFolder:LanguageGuide}/.build/debug/LanguageGuide",
+            "preLaunchTask": "swift: Build Debug LanguageGuide"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:LanguageGuide}",
+            "name": "Release LanguageGuide",
+            "program": "${workspaceFolder:LanguageGuide}/.build/release/LanguageGuide",
+            "preLaunchTask": "swift: Build Release LanguageGuide"
+        }
+    ]
+}
