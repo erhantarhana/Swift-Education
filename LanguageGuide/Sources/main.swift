@@ -156,3 +156,21 @@ func roleDescription(role: UserRole) -> String {
 var currentUserRole = UserRole.guest
 var currentRoleDescription = roleDescription(role: currentUserRole)
 print("Current role: \(currentRoleDescription)")
+
+//------------------------------------------------------------------------------------------------------
+
+// Structures and Classes
+struct Car {
+    var model: String
+    var rentalPricePerDay: Double
+    var isAvailable: Bool
+
+    func rentalCost(days: Int) -> Double {
+        return rentalPricePerDay * Double(days)
+    }
+}
+
+var car1 = Car(model: "AUDI S3", rentalPricePerDay: 100.0, isAvailable: true)
+var day = 5
+var rentalCost = car1.rentalCost(days: day)
+print("Rental cost for \(day) days: $\(rentalCost)")
