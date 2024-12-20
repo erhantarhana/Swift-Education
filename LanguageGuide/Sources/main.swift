@@ -71,20 +71,20 @@ var score = 77
 var grade: String
 
 switch score {
-case 90...100:
-    grade = "AA"
-    break
-case 80..<90:
-    grade = "BB"
-    break
-case 70..<80:
-    grade = "CC"
-    break
-case 60..<70:
-    grade = "DD"
-    break
-default:
-    grade = "FF"
+    case 90...100:
+        grade = "AA"
+        break
+    case 80..<90:
+        grade = "BB"
+        break
+    case 70..<80:
+        grade = "CC"
+        break
+    case 60..<70:
+        grade = "DD"
+        break
+    default:
+        grade = "FF"
 }
 
 print("The student's grade is \(grade).")
@@ -132,3 +132,27 @@ let sortedCourseItems = courseItemsSort.sorted { (item1, item2) -> Bool in
 for item in sortedCourseItems {
     print("\(item.0): \(item.1) credit")
 }
+
+//------------------------------------------------------------------------------------------------------
+
+// Enumerations
+enum UserRole: Int {
+    case admin = 1
+    case user = 2
+    case guest = 3
+}
+
+func roleDescription(role: UserRole) -> String {
+    switch role {
+        case .admin:
+            return "Admin has full access to the system."
+        case .user:
+            return "User has limited access."
+        case .guest:
+            return "Guest has minimal access."
+        }
+}
+
+var currentUserRole = UserRole.guest
+var currentRoleDescription = roleDescription(role: currentUserRole)
+print("Current role: \(currentRoleDescription)")
