@@ -423,3 +423,32 @@ do {
 } catch {
     print("An unexpected error occurred: \(error).")
 }
+
+//------------------------------------------------------------------------------------------------------
+
+// Concurrency
+import Foundation
+
+func prepareMeal(order: String, completion: @escaping @Sendable (String) -> Void) {
+    print("Order received: \(order)")
+    DispatchQueue.global().async {
+        print("Preparing \(order)...")
+        sleep(2)
+        let preparedMeal = "\(order) is ready!"
+        
+        DispatchQueue.main.async {
+            completion(preparedMeal)
+        }
+    }
+}
+
+func takeOrders(orders: [String]) {
+    for order in orders {
+        prepareMeal(order: order) { preparedMeal in
+            print(preparedMeal)
+        }
+    }
+}
+
+let orders = ["Pizza", "Kebab", "Burger"]
+takeOrders(orders: orders)
