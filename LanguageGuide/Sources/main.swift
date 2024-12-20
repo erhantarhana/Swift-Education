@@ -317,3 +317,25 @@ let book2 = BookInfo(title: "The Trial", yearPublished: 1925, author: author)
 
 print("\(book1.title) was written by \(book1.author.name) and published in \(book1.yearPublished).")
 print("\(book2.title) was written by \(book2.author.name) and published in \(book2.yearPublished).")
+
+//------------------------------------------------------------------------------------------------------
+
+// Deinitialization
+class Database {
+    var username: String
+    var database: String
+
+    init(username: String, database: String) {
+        self.username = username
+        self.database = database
+        print("Connecting to the database \(database) with username \(username)...")
+    }
+
+    deinit {
+        print("Closing the connection to the database \(database).")
+    }
+}
+
+var dbConnection: Database? = Database(username: "user1", database: "BookDB")
+
+dbConnection = nil
