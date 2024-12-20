@@ -88,3 +88,29 @@ default:
 }
 
 print("The student's grade is \(grade).")
+
+//------------------------------------------------------------------------------------------------------
+
+// Functions
+func calculateTotal(orderItems: [String], prices: [String: Double]) -> Double {
+    var total = 0.0
+    
+    for item in orderItems {
+        if let price = prices[item] {
+            total += price
+        }
+    }
+    
+    return total
+}
+
+let order = ["Burger", "Kebab", "Dessert"]
+let menuPrices: [String: Double] = [
+    "Burger": 6.99,
+    "Pizza": 10.49,
+    "Kebab": 14.99,
+    "Dessert": 4.99
+]
+
+let totalPrice = calculateTotal(orderItems: order, prices: menuPrices)
+print("Total price for the order is $\(totalPrice).")
