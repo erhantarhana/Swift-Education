@@ -211,3 +211,31 @@ let myCar = CarSpeed(speed: 50)
 myCar.accelerate() // speed -> 60
 myCar.accelerate() // speed -> 70
 myCar.accelerate() // speed -> 80
+
+//------------------------------------------------------------------------------------------------------
+
+// Subscripts
+class StudentGrades {
+    var grades: [String: Int]
+
+    init(grades: [String: Int]) {
+        self.grades = grades
+    }
+
+    subscript(student: String) -> Int? {
+        get {
+            return grades[student]
+        }
+        set {
+            if let newGrade = newValue {
+                grades[student] = newGrade
+            }
+        }
+    }
+}
+
+let studentGrades = StudentGrades(grades: ["John": 65, "Mark": 95, "Lewis": 88])
+print(studentGrades["John"]!)
+
+studentGrades["Lewis"] = 80
+print(studentGrades["Lewis"]!)
